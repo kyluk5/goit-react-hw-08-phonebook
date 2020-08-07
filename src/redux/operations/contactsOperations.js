@@ -26,7 +26,7 @@ export const getContact = () => (dispatch) => {
   axios
     .get("http://localhost:5000/contacts")
     .then((response) => {
-      console.log(response);
+      console.log(response.data);
       dispatch(getContactsSeccess(response.data));
     })
     .catch((error) => dispatch(getContactsError(error)));
