@@ -1,0 +1,24 @@
+{
+  "contacts": [
+    {
+      "name": "Kulyk Andrii ",
+      "number": "0632235747",
+      "id": 1
+    },
+    {
+      "name": "maks",
+      "number": "0632235747",
+      "id": 3
+    },
+    {
+      "name": "maks korz",
+      "number": "234567",
+      "id": 4
+    },
+    {
+      "name": "Maks Barskih",
+      "number": "2r4",
+      "id": 5
+    }
+  ]
+}

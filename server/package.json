@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "json-server -p 5000 -d 250 -w db.json ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kulyk_Andrii <kyluk5@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.1"
+  }
+}
