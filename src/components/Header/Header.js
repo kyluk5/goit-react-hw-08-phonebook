@@ -1,23 +1,23 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
-import { navigation } from "../../../../BC_21_React/src/constants";
+import { navigation } from "../../Containers/navigation";
 
 const Header = (props) => (
-  <heade>
-    <nav>
+  <header>
+    <nav className="main-nav">
       <NavLink to={navigation.login} className="nav-link">
         Login
       </NavLink>
       <NavLink to={navigation.registration} className="nav-link">
-        Register
+        Registration
       </NavLink>
       <NavLink to={navigation.home} className="nav-link">
         Home
       </NavLink>
     </nav>
-  </heade>
+  </header>
 );
 
 Header.propTypes = {

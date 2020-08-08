@@ -1,1 +1,30 @@
-/* your css code */
+.registration-title {
+    text-align: center;
+}
+
+.registration-form {
+    text-align: -webkit-center;
+}
+
+.reginstration-input {
+    text-align: center;
+    display: flex;
+    min-width: 500px;
+    min-height: 30px;
+    margin-bottom: 30px;
+}
+
+.registaration-button {
+    display: block;
+    margin: 0 auto;
+    min-width: 500px;
+    min-height: 30px;
+    border-radius: 4px;
+    background-color: blueviolet;
+    color: white;
+
+}
+
+.log-in {
+    text-align: center;
+}
