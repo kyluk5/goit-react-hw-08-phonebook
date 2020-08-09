@@ -42,12 +42,12 @@ const Login = () => {
           value={form.password}
           onChange={inputHandler}
         />
+        <button className="log-in-button">Sign In</button>
+        <p className="log-in">
+          If you dont have account, please folow{" "}
+          <NavLink to={navigation.registration}>Registration</NavLink>
+        </p>
       </form>
-      <button className="log-in-button">Sign In</button>
-      <p className="log-in">
-        If you dont have account, please folow{" "}
-        <NavLink to={navigation.registration}>Registration</NavLink>
-      </p>
     </>
   );
 };

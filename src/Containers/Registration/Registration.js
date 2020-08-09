@@ -50,12 +50,12 @@ const Registration = () => {
           onChange={inputHandler}
           value={form.password}
         />
+        <button className="registaration-button">Registration</button>
+        <p className="log-in">
+          If you alredy have account, please{" "}
+          <NavLink to={navigation.login}>Log In</NavLink>
+        </p>
       </form>
-      <button className="registaration-button">Registration</button>
-      <p className="log-in">
-        If you alredy have account, please{" "}
-        <NavLink to={navigation.login}>Log In</NavLink>
-      </p>
     </>
   );
 };
