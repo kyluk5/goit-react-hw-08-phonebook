@@ -1,1 +1,30 @@
-/* your css code */
+.log-in-title {
+    text-align: center;
+}
+
+.log-in-form {
+    text-align: -webkit-center;
+}
+
+.log-in-input {
+    text-align: center;
+    display: flex;
+    min-width: 500px;
+    min-height: 30px;
+    margin-bottom: 30px;
+}
+
+.log-in-button {
+    display: block;
+    margin: 0 auto;
+    min-width: 500px;
+    min-height: 30px;
+    border-radius: 4px;
+    background-color: blueviolet;
+    color: white;
+
+}
+
+.log-in {
+    text-align: center;
+}
