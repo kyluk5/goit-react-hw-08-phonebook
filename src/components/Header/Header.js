@@ -3,8 +3,9 @@ import React from "react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
 import { navigation } from "../../Containers/navigation";
+import UserMenu from "../UserMenu/UserMenu";
 
-const Header = (props) => (
+const Header = () => (
   <header>
     <nav className="main-nav">
       <NavLink to={navigation.login} className="nav-link">
@@ -16,6 +17,7 @@ const Header = (props) => (
       <NavLink to={navigation.home} className="nav-link">
         Home
       </NavLink>
+      <UserMenu />
     </nav>
   </header>
 );

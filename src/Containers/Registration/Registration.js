@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { navigation } from "../navigation";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/operations/authOperations";
 // import PropTypes from 'prop-types';
 import "./Registration.css";
 
@@ -8,18 +10,19 @@ const initialState = { name: "", email: "", password: "" };
 
 const Registration = () => {
   const [form, setForm] = useState(initialState);
+  const dispatch = useDispatch();
+
   const inputHandler = ({ target }) => {
     const { name, value } = target;
     setForm((state) => ({
       ...state,
       [name]: value,
     }));
-    // console.log(form);
   };
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log(form);
+    dispatch(register(form));
   };
 
   return (

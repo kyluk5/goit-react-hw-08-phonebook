@@ -14,7 +14,6 @@ const Login = () => {
       ...state,
       [name]: value,
     }));
-    // console.log(form);
   };
 
   const submitForm = (e) => {
