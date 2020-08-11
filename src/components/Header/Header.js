@@ -4,6 +4,7 @@ import "./Header.css";
 import { NavLink } from "react-router-dom";
 import { navigation } from "../../Containers/navigation";
 import UserMenu from "../UserMenu/UserMenu";
+import AuthNav from "../AuthNav/AuthNav";
 import { useSelector } from "react-redux";
 
 const Header = () => {
@@ -12,21 +13,16 @@ const Header = () => {
     <header>
       <nav className="main-nav">
         {token ? (
-          <NavLink to={navigation.home} className="nav-link">
-            Home
+          <NavLink to={navigation.contacts} exact className="nav-link">
+            Contacts
           </NavLink>
         ) : (
-          <>
-            <NavLink to={navigation.login} className="nav-link">
-              Login
-            </NavLink>
-            <NavLink to={navigation.registration} className="nav-link">
-              Registration
-            </NavLink>
-          </>
+          <NavLink to={navigation.home} exact className="nav-link">
+            Home
+          </NavLink>
         )}
 
-        {token && <UserMenu />}
+        {token ? <UserMenu /> : <AuthNav />}
       </nav>
     </header>
   );

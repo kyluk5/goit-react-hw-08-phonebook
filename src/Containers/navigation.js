@@ -1,5 +1,6 @@
 export const navigation = {
   home: "/",
   login: "/login",
-  registration: "/registration",
+  registration: "/register",
+  contacts: "/contacts",
 };

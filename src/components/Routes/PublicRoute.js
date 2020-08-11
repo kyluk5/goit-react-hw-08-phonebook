@@ -11,7 +11,7 @@ const PublicRoute = ({ component: Component, restricted, ...routeProps }) => {
       {...routeProps}
       render={(props) => {
         return isAuthorized && restricted ? (
-          <Redirect to={navigation.home} />
+          <Redirect to={navigation.contacts} />
         ) : (
           <Component {...props} />
         );
