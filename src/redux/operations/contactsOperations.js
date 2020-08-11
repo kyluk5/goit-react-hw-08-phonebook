@@ -11,20 +11,19 @@ import {
   deleteContactsError,
 } from "../actions/contactsAction";
 
-export const addContact = (name, number) => (dispatch) => {
-  dispatch(addContactsReguest());
-  axios
-    .post("http://localhost:5000/contacts", { name, number })
-    .then((response) => {
-      dispatch(addContactsSeccess(response.data));
-    })
-    .catch((error) => dispatch(addContactsError(error)));
-};
+export const getContact = () => (dispatch, getState) => {
+  const {
+    auth: { token },
+  } = getState();
 
-export const getContact = () => (dispatch) => {
   dispatch(getContactsReguest());
-  axios
-    .get("http://localhost:5000/contacts")
+  axios({
+    url: "/contacts",
+    method: "get",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
     .then((response) => {
       console.log(response.data);
       dispatch(getContactsSeccess(response.data));
@@ -32,10 +31,39 @@ export const getContact = () => (dispatch) => {
     .catch((error) => dispatch(getContactsError(error)));
 };
 
-export const deleteContact = (id) => (dispatch) => {
+export const addContact = (name, number) => (dispatch, getState) => {
+  const {
+    auth: { token },
+  } = getState();
+
+  dispatch(addContactsReguest());
+  axios({
+    url: "/contacts",
+    method: "post",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    data: { name, number },
+  })
+    .then((response) => {
+      dispatch(addContactsSeccess(response.data));
+    })
+    .catch((error) => dispatch(addContactsError(error)));
+};
+
+export const deleteContact = (id) => (dispatch, getState) => {
+  const {
+    auth: { token },
+  } = getState();
+
   dispatch(deleteContactsReguest());
-  axios
-    .delete(`http://localhost:5000/contacts/${id}`)
+  axios({
+    url: `/contacts/${id}`,
+    method: "delete",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
     .then(() => {
       dispatch(deleteContactsSeccess(id));
     })

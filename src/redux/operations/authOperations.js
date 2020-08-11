@@ -21,7 +21,7 @@ export const register = (user) => async (dispatch) => {
   await axios
     .post("/users/signup", user)
     .then((response) => dispatch(registerSuccess(response.data)))
-    .catch((error) => dispatch(registerError(error)));
+    .catch((error) => dispatch(registerError({ error })));
 };
 
 export const logIn = (user) => async (dispatch) => {

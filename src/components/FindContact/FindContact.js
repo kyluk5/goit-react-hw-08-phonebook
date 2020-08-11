@@ -14,7 +14,7 @@ import {
 const FindContact = ({ inputValue, deleteContact, result }) => {
   return (
     <>
-      {result.length > 1 && (
+      {result.length > 0 && (
         <div className="search-container">
           <span>Find contacts by name</span>
           <br></br>
