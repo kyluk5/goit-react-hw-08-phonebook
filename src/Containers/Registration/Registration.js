@@ -23,6 +23,7 @@ const Registration = () => {
   const submitForm = (e) => {
     e.preventDefault();
     dispatch(register(form));
+    setForm(initialState);
   };
 
   return (

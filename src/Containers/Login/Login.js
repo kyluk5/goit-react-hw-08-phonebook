@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { navigation } from "../navigation";
 import { NavLink } from "react-router-dom";
 // import PropTypes from 'prop-types';
+import { useDispatch } from "react-redux";
 import "./Login.css";
+import { logIn } from "../../redux/operations/authOperations";
 
 const initialState = { email: "", password: "" };
 
 const Login = () => {
   const [form, setForm] = useState(initialState);
+  const dispatch = useDispatch();
   const inputHandler = ({ target }) => {
     const { name, value } = target;
     setForm((state) => ({
@@ -18,7 +21,8 @@ const Login = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log(form);
+    dispatch(logIn(form));
+    setForm(initialState);
   };
 
   return (
