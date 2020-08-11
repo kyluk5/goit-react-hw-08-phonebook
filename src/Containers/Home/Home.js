@@ -32,9 +32,7 @@ class Home extends Component {
       this.toggle(value);
       return;
     }
-
     this.props.addContact(name, number);
-
     this.setState({
       name: "",
       number: "",
