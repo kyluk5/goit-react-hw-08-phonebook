@@ -29,10 +29,15 @@ export const logIn = (user) => async (dispatch) => {
     .catch((error) => dispatch(loginError(error)));
 };
 
-export const logOut = () => async (dispatch) => {
+export const logOut = (token) => async (dispatch) => {
   dispatch(logOutReguest());
-  await axios
-    .post("/users/logout")
+  await axios({
+    url: "/users/logout",
+    method: "post",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
     .then(() => dispatch(logOutSuccess()))
     .catch((error) => dispatch(logOutError(error)));
 };
