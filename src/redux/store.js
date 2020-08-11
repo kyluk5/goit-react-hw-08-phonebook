@@ -1,24 +1,39 @@
-// import { createStore, combineReducers } from "redux";
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-// import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from "./reducers/contactsReducer";
 import auth from "./reducers/authReducer";
-// import logger from "redux-logger";
 
-// const rootReducer = combineReducers({
-//   contacts: contactsReducer,
-// });
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 
-// const store = createStore(rootReducer, composeWithDevTools());
+const persistConfig = {
+  key: "token",
+  storage,
+  whitelist: ["token"],
+};
 
-const defaultMidleware = getDefaultMiddleware();
+const defaultMidleware = getDefaultMiddleware({
+  serializableCheck: {
+    ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+  },
+});
 
 const store = configureStore({
   reducer: {
     contacts: rootReducer,
-    auth,
+    auth: persistReducer(persistConfig, auth),
   },
   middleware: [...defaultMidleware],
 });
+
+export const persistor = persistStore(store);
 
 export default store;

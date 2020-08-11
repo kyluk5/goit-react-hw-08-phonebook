@@ -9,6 +9,7 @@ import FindContact from "../../components/FindContact/FindContact";
 import { CSSTransition } from "react-transition-group";
 import "./Home.css";
 import { contactsSelector } from "../../redux/selectors/contacts-selectors";
+import { getCurrentUser } from "../../redux/operations/authOperations";
 
 class Home extends Component {
   state = {
@@ -47,6 +48,7 @@ class Home extends Component {
   };
 
   componentDidMount() {
+    this.props.getCurrentUser();
     this.props.getContact();
   }
 
@@ -89,6 +91,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   addContact,
+  getCurrentUser,
   getContact,
 };
 
