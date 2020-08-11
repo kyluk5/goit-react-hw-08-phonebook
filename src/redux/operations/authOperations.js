@@ -6,6 +6,9 @@ import {
   loginReguest,
   loginSuccess,
   loginError,
+  logOutReguest,
+  logOutSuccess,
+  logOutError,
 } from "../actions/authAction";
 
 axios.defaults.baseURL = "https://goit-phonebook-api.herokuapp.com";
@@ -24,4 +27,12 @@ export const logIn = (user) => async (dispatch) => {
     .post("/users/login", user)
     .then((response) => dispatch(loginSuccess(response.data)))
     .catch((error) => dispatch(loginError(error)));
+};
+
+export const logOut = () => async (dispatch) => {
+  dispatch(logOutReguest());
+  await axios
+    .post("/users/logout")
+    .then(() => dispatch(logOutSuccess()))
+    .catch((error) => dispatch(logOutError(error)));
 };

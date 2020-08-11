@@ -1,12 +1,17 @@
 import React from "react";
 // import PropTypes from 'prop-types';
 import "./UserMenu.css";
+import { useSelector } from "react-redux";
+import { logOut } from "../../redux/operations/authOperations";
 
 const UserMenu = () => {
+  const email = useSelector((state) => state.auth.user.email);
   return (
     <>
-      <p>kyluk5@gmail.com</p>
-      <button className="log-out">Log Out</button>
+      <p>{email}</p>
+      <button className="log-out" onClick={logOut}>
+        Log Out
+      </button>
     </>
   );
 };
