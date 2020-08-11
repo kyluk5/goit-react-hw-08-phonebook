@@ -28,7 +28,7 @@ export const getContact = () => (dispatch, getState) => {
       console.log(response.data);
       dispatch(getContactsSeccess(response.data));
     })
-    .catch((error) => dispatch(getContactsError(error)));
+    .catch(({ message }) => dispatch(getContactsError(message)));
 };
 
 export const addContact = (name, number) => (dispatch, getState) => {
@@ -48,7 +48,7 @@ export const addContact = (name, number) => (dispatch, getState) => {
     .then((response) => {
       dispatch(addContactsSeccess(response.data));
     })
-    .catch((error) => dispatch(addContactsError(error)));
+    .catch(({ message }) => dispatch(addContactsError(message)));
 };
 
 export const deleteContact = (id) => (dispatch, getState) => {
@@ -67,5 +67,5 @@ export const deleteContact = (id) => (dispatch, getState) => {
     .then(() => {
       dispatch(deleteContactsSeccess(id));
     })
-    .catch((error) => dispatch(deleteContactsError(error)));
+    .catch(({ message }) => dispatch(deleteContactsError(message)));
 };

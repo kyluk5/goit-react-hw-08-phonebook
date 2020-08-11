@@ -11,21 +11,21 @@ const Header = () => {
   return (
     <header>
       <nav className="main-nav">
-        {!token && (
-          <NavLink to={navigation.login} className="nav-link">
-            Login
-          </NavLink>
-        )}
-        {!token && (
-          <NavLink to={navigation.registration} className="nav-link">
-            Registration
-          </NavLink>
-        )}
-        {token && (
+        {token ? (
           <NavLink to={navigation.home} className="nav-link">
             Home
           </NavLink>
+        ) : (
+          <>
+            <NavLink to={navigation.login} className="nav-link">
+              Login
+            </NavLink>
+            <NavLink to={navigation.registration} className="nav-link">
+              Registration
+            </NavLink>
+          </>
         )}
+
         {token && <UserMenu />}
       </nav>
     </header>

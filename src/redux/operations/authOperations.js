@@ -21,7 +21,7 @@ export const register = (user) => async (dispatch) => {
   await axios
     .post("/users/signup", user)
     .then((response) => dispatch(registerSuccess(response.data)))
-    .catch((error) => dispatch(registerError({ error })));
+    .catch(({ message }) => dispatch(registerError(message)));
 };
 
 export const logIn = (user) => async (dispatch) => {
@@ -29,7 +29,7 @@ export const logIn = (user) => async (dispatch) => {
   await axios
     .post("/users/login", user)
     .then((response) => dispatch(loginSuccess(response.data)))
-    .catch((error) => dispatch(loginError(error)));
+    .catch(({ message }) => dispatch(loginError(message)));
 };
 
 export const logOut = (token) => async (dispatch) => {
@@ -42,7 +42,7 @@ export const logOut = (token) => async (dispatch) => {
     },
   })
     .then(() => dispatch(logOutSuccess()))
-    .catch((error) => dispatch(logOutError(error)));
+    .catch(({ message }) => dispatch(logOutError(message)));
 };
 
 export const getCurrentUser = () => async (dispatch, getState) => {
@@ -63,5 +63,5 @@ export const getCurrentUser = () => async (dispatch, getState) => {
     },
   })
     .then(({ data }) => dispatch(getCurrentUserSuccess(data)))
-    .catch((error) => dispatch(getCurrentUserError(error)));
+    .catch(({ message }) => dispatch(getCurrentUserError(message)));
 };
